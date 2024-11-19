@@ -1,0 +1,70 @@
+/* CoachDashboard.css */
+.coach-dashboard .card {
+    height: 150px;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.coach-dashboard .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.coach-dashboard .card-title {
+    font-weight: bold;
+}
+
+.coach-dashboard .card-body .stretched-link {
+    font-size: 1.1em;
+    color: #007bff;
+}
+
+.coach-dashboard .text-center {
+    color: #333;
+}
+.coach-dashboard .card img {
+    height: 150px;
+    object-fit: cover;
+}/* src/components/CoachDashboard.css */
+.coach-dashboard {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .additional-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center; 
+  }
+  
+  .additional-content h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #343a40; 
+  }
+  
+  .additional-content p {
+    font-size: 1.2em;
+    color: #555; 
+    line-height: 1.6; 
+  }
+  
+  .footer {
+    background-color: #343a40;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    text-align: center; 
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+  }
+
+  
+  
+  
+  
