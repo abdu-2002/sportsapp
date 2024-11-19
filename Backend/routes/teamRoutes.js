@@ -7,9 +7,22 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
 // Create a team
+// router.post('/team',auth('coach'),  async (req, res) => {
+//     try {
+//         const team = new Team(req.body);
+//         await team.save();
+//         res.status(201).json(team);
+//     } catch (error) {
+//         console.error("Error creating team:", error);
+//         res.status(500).json({ message: 'Internal server error' });
+//     }
+// });
 router.post('/team', auth('coach'), async (req, res) => {
     try {
-        const team = new Team(req.body);
+        const team = new Team({
+            ...req.body,
+            coach: req.user.id // Attach logged-in user's ID to the coach field
+        });
         await team.save();
         res.status(201).json(team);
     } catch (error) {
@@ -18,10 +31,12 @@ router.post('/team', auth('coach'), async (req, res) => {
     }
 });
 
+
 // Get all teams
-router.get('/team', async (req, res) => {
+router.get('/team', auth('coach'), async (req, res) => {
     try {
-        const teams = await Team.find();
+        // Fetch teams where the coach matches the logged-in user's ID
+        const teams = await Team.find({ coach: req.user.id });
         res.json(teams);
     } catch (error) {
         console.error("Error fetching teams:", error);
